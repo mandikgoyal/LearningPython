@@ -2,13 +2,12 @@ import socket
 from IPy import IP
 import ipaddress as ip
 
-def scan(tagerts,starting_port,ending_port):
+def scan(tagerts):
     actualip=check_ip(tagerts)
-    for port in range(starting_port,ending_port):
+    for port in range(15,1024):
         scan_port(actualip,port)
 
 def check_ip(input):
-    print(input)
     try:
         IP(input)
         return input
@@ -33,12 +32,9 @@ def scan_port(ipaddress,port):
         pass
 
 userinputs = input("Enter Multiple IP Addresses / Domains : ")
-Port_Range = input("Enter Port Range (Example 80-443): ")
-SplitPorts = Port_Range.split("-")
-starting_port = int(SplitPorts[0])
-ending_port   = int(SplitPorts[1])
+
 if "," in userinputs:
     for target in userinputs.split(","):
-        scan(target.strip(" "),starting_port,ending_port)
+        scan(target.strip(" ").strip("http://").strip("https://"))
 else :
-        scan(userinputs,starting_port,ending_port)
+        scan(userinputs)
