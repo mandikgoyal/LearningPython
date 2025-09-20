@@ -1,6 +1,6 @@
 import socket
 from IPy import IP
-
+import ipaddress as ip
 
 def check_ip(input):
     try:
@@ -18,9 +18,9 @@ def scan_port(ipaddress,port):
     except:
         print("Port " + str(port) + " is Closed for " + str(ipaddress))
 
-input = input("Enter an IP Address : ")
-actualip=check_ip(input)
-if(actualip.isdigit()):
+userinput = input("Enter an IP Address / Domain : ")
+actualip=check_ip(userinput)
+if(actualip):
     Port_Range = input("Enter Port Range (Example 80-443): ")
     SplitPorts = Port_Range.split("-")
     starting_port = int(SplitPorts[0])
@@ -29,4 +29,4 @@ if(actualip.isdigit()):
     for port in range(starting_port,ending_port):
         scan_port(actualip,port)
 else:
-    print("Error: Enter a valid IP Address")
+    print("Error: Enter a valid IP Address / Domain")
