@@ -1,7 +1,6 @@
 import socket
 from IPy import IP
 
-
 def check_ip(input):
     try:
         IP(input)
