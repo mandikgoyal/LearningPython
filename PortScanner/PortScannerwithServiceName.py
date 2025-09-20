@@ -28,10 +28,11 @@ def scan_port(ipaddress,port):
     except:
             pass
 
-userinputs = input("Enter Multiple IP Addresses / Domains : ")
 
-if "," in userinputs:
-    for target in userinputs.split(","):
-        scan(target.strip(" ").strip("http://").strip("https://"))
-else :
+if __name__ == "__main__":
+    userinputs = input("Enter Multiple IP Addresses / Domains : ")
+    if "," in userinputs:
+        for target in userinputs.split(","):
+            scan(target.strip(" ").strip("http://").strip("https://"))
+    else :
         scan(userinputs)
