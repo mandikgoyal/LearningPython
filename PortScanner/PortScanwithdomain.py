@@ -18,7 +18,7 @@ def scan_port(ipaddress,port):
     except:
         print("Port " + str(port) + " is Closed for " + str(ipaddress))
 
-userinput = input("Enter an IP Address : ")
+userinput = input("Enter an IP Address / Domain : ")
 actualip=check_ip(userinput)
 if(actualip):
     Port_Range = input("Enter Port Range (Example 80-443): ")
@@ -29,4 +29,4 @@ if(actualip):
     for port in range(starting_port,ending_port):
         scan_port(actualip,port)
 else:
-    print("Error: Enter a valid IP Address")
+    print("Error: Enter a valid IP Address / Domain")
