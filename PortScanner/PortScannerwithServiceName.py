@@ -16,12 +16,14 @@ def check_ip(input):
     
 
 def get_banner(s):
+    s.sendall
     return s.recv(1024)
 
 def scan_port(ipaddress,port):
+    print("[0_T] Scanning for " + ipaddress)
     try:
         sock= socket.socket()
-        sock.settimeout(0.5)
+        sock.settimeout(1)
         sock.connect((ipaddress,port))
         try:
             banner = get_banner(sock)
