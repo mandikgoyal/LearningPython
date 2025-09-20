@@ -3,6 +3,7 @@ from IPy import IP
 import ipaddress as ip
 
 def scan(tagerts):
+    print("[0_T] Scanning for " + tagerts)
     actualip=check_ip(tagerts)
     for port in range(15,1024):
         scan_port(actualip,port)
@@ -20,7 +21,6 @@ def get_banner(s):
     return s.recv(1024)
 
 def scan_port(ipaddress,port):
-    print("[0_T] Scanning for " + ipaddress)
     try:
         sock= socket.socket()
         sock.settimeout(1)
