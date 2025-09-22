@@ -1,7 +1,5 @@
 import socket
 from IPy import IP
-import ipaddress as ip
-
 
 def scan(tagerts):
     print("[0_T] Scanning for " + tagerts)
